@@ -1,8 +1,11 @@
 package com.guiabolso.mock.enums;
 
+import lombok.Getter;
+
 import java.util.HashMap;
 import java.util.Map;
 
+@Getter
 public enum Month {
 
     JAN(1),
@@ -19,9 +22,9 @@ public enum Month {
     DEC(12);
 
     public final int value;
-    private static Map map = new HashMap<>();
+    private static final Map map = new HashMap<>();
 
-    private Month(int value) {
+    Month(int value) {
         this.value = value;
     }
 
@@ -32,9 +35,5 @@ public enum Month {
     }
     public static Month valueOf(int month) {
         return (Month) map.get(month);
-    }
-
-    public int getValue() {
-        return value;
     }
 }
