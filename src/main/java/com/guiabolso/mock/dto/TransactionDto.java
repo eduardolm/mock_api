@@ -1,9 +1,13 @@
 package com.guiabolso.mock.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import net.minidev.json.annotate.JsonIgnore;
+import lombok.NoArgsConstructor;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class TransactionDto {
 
     @JsonIgnore

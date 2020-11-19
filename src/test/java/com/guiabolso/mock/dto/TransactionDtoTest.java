@@ -15,20 +15,20 @@ public class TransactionDtoTest {
 
     @Test
     public void testEquals() {
-        assertFalse(new TransactionDto().equals("other"));
+        assertNotEquals(new TransactionDto(), "other");
     }
 
     @Test
     public void testEquals2() {
         TransactionDto transactionDto = new TransactionDto();
-        transactionDto.setDate(LocalDate.of(2020, 03, 15)
+        transactionDto.setDate(LocalDate.of(2020, 3, 15)
                 .atStartOfDay(ZoneOffset.UTC)
                 .toInstant()
                 .toEpochMilli());
         transactionDto.setAmount(15432);
         transactionDto.setDescription("testing description");
 
-        assertFalse(new TransactionDto().equals(transactionDto));
+        assertNotEquals(transactionDto, new TransactionDto());
     }
 
     @Test
@@ -39,8 +39,7 @@ public class TransactionDtoTest {
         assertEquals(0,transactionDto.getAmount());
         assertEquals(0,transactionDto.getDate());
         assertNull(transactionDto.getDescription());
-        assertEquals("TransactionDto(description=null, amount=0, date=0)",
-                transactionDto.toString());
+        assertEquals("TransactionDto(id=0, description=null, amount=0, date=0)", transactionDto.toString());
     }
 
     @Test
@@ -60,7 +59,7 @@ public class TransactionDtoTest {
 
     @Test
     public void testHashCode() {
-        assertEquals(205422, new TransactionDto().hashCode());
+        assertEquals(12117404, new TransactionDto().hashCode());
     }
 
     @Test
@@ -68,7 +67,7 @@ public class TransactionDtoTest {
         TransactionDto transactionDto = new TransactionDto();
         transactionDto.setDescription("description test");
 
-        assertEquals(449179769, transactionDto.hashCode());
+        assertEquals(461091751, transactionDto.hashCode());
     }
 
     @Test
@@ -83,14 +82,14 @@ public class TransactionDtoTest {
 
     @Test
     public void testHashCode4() {
-        long date = LocalDate.of(2020, 03, 15)
+        long date = LocalDate.of(2020, 3, 15)
                 .atStartOfDay(ZoneOffset.UTC)
                 .toInstant()
                 .toEpochMilli();
         TransactionDto transactionDto = new TransactionDto();
         transactionDto.setDate(date);
 
-        assertEquals(-1779435714, transactionDto.hashCode());
+        assertEquals(-1767523732, transactionDto.hashCode());
     }
 
     @Test
@@ -98,7 +97,7 @@ public class TransactionDtoTest {
         TransactionDto transactionDto = new TransactionDto();
         transactionDto.setAmount(15432);
 
-        assertEquals(53924214, transactionDto.hashCode());
+        assertEquals(65836196, transactionDto.hashCode());
     }
 
     @Test
@@ -106,19 +105,19 @@ public class TransactionDtoTest {
         TransactionDto transactionDto = new TransactionDto();
         transactionDto.setDescription("testing description");
 
-        assertEquals("TransactionDto(description=testing description, amount=0, date=0)", transactionDto.toString());
+        assertEquals("TransactionDto(id=0, description=testing description, amount=0, date=0)", transactionDto.toString());
     }
 
     @Test
     public void testSetDate() {
         TransactionDto transactionDto = new TransactionDto();
-        long date = LocalDate.of(2020, 03, 15)
+        long date = LocalDate.of(2020, 3, 15)
                 .atStartOfDay(ZoneOffset.UTC)
                 .toInstant()
                 .toEpochMilli();
         transactionDto.setDate(date);
 
-        assertEquals("TransactionDto(description=null, amount=0, date=1584230400000)", transactionDto.toString());
+        assertEquals("TransactionDto(id=0, description=null, amount=0, date=1584230400000)", transactionDto.toString());
     }
 
     @Test
@@ -126,12 +125,12 @@ public class TransactionDtoTest {
         TransactionDto transactionDto = new TransactionDto();
         transactionDto.setAmount(15432);
 
-        assertEquals("TransactionDto(description=null, amount=15432, date=0)", transactionDto.toString());
+        assertEquals("TransactionDto(id=0, description=null, amount=15432, date=0)", transactionDto.toString());
     }
 
     @Test
     public void testToString() {
-        assertEquals("TransactionDto(description=null, amount=0, date=0)", new TransactionDto().toString());
+        assertEquals("TransactionDto(id=0, description=null, amount=0, date=0)", new TransactionDto().toString());
     }
 }
 

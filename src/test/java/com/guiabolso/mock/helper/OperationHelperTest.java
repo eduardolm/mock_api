@@ -80,7 +80,7 @@ public class OperationHelperTest {
     public void testGetTimestamp() {
         long[] testDates = operationHelper.getTimestamp(2020, 10, 20);
 
-        assertNotEquals(testDates[0], testDates[1]);
+        assertNotEquals(testDates[10], testDates[1]);
         assertNotEquals(testDates[2], testDates[4]);
         assertNotEquals(testDates[5], testDates[6]);
         assertEquals(20, testDates.length);

@@ -35,7 +35,5 @@ public class TransactionServiceTest {
         assertNotEquals(date[18], testList.get(18).getDate());
         assertNotEquals(description[20], testList.get(20).getDescription());
         assertEquals(quantity, testList.size());
-
-
     }
 }
