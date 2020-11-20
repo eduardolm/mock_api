@@ -35,9 +35,9 @@ A API utiliza as seguintes tecnologias:
 ## Como utilizar
 Para executar a API existem duas opções principais:
  + Acessar o endereço da API utilizando o browser, acessando a interface gráfica do Swagger
- + Utlizar ferramenta como Postman ou smiliar para fazer as requisições para a API
+ + Utilizar ferramenta como Postman ou similar para fazer as requisições para a API
 
-`<Link>`: <https://github.com>
+`<Link>: <API_URL>`
 
 A API desenvolvida não utiliza nenhum banco de dados para armazenamento, em memória, SQL ou NoSQL.
 Dessa forma todas as consultas apresentam os resultados simulados em tempo real.

@@ -3,7 +3,13 @@
 
 ### Como executar
 A API pode ser executada utilizando Swagger ou realizando as requisições com Postman ou similares.
-Para isso basta acessar a URI da API, conforme descrito no arquivo README.md.
+Para isso basta acessar a URL da API:
+
+`<API_URL>`
+
+Para acesso utilizando Swagger, basta acessar:
+
+`<API_URL>/swagger-ui`
 
 ### Endpoints 
 
@@ -11,9 +17,13 @@ Para isso basta acessar a URI da API, conforme descrito no arquivo README.md.
 
 ##### Método - GET
 
+###### URI:
+
+`<API_URL>/mock/{id}/transacoes/{ano}/{mês}`
+
 **Ação** | **Endpoint** | **Método**
 ------ | ----- | -----
-Consultar | _/mock/{id}/transacoes/{year}/{month}_ | GET
+Consultar | _/mock/{id}/transacoes/{ano}/{mês}_ | GET
 
 ### Layout dos Payloads
 
