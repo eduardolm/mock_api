@@ -1,6 +1,5 @@
 package com.guiabolso.mock.validator.constraint;
 
-import com.guiabolso.mock.validator.IdValidator;
 import com.guiabolso.mock.validator.YearValidator;
 
 import javax.validation.Constraint;

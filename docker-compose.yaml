@@ -1,8 +1,9 @@
-version: '2'
+version: '3.8'
 
 services:
-  man:
+  web:
     build: .
-    image: eduardolm/mock-api
+    image: "eduardolm/mock-api"
+    container_name: "mock-api"
     ports:
-      - 8080:8080
+      - "8080:8080"
