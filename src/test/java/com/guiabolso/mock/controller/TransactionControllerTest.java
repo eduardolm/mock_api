@@ -17,10 +17,11 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.BDDMockito.given;
 
 @ExtendWith(SpringExtension.class)
@@ -53,7 +54,9 @@ public class TransactionControllerTest {
 
         assertEquals(HttpStatus.OK, response.getStatusCode());
         assertEquals("testing controller", Arrays
-                .stream(response.getBody()).map(TransactionDto::getDescription).collect(Collectors.joining()));
+                .stream(Objects.requireNonNull(response.getBody()))
+                .map(TransactionDto::getDescription)
+                .collect(Collectors.joining()));
 
     }
 

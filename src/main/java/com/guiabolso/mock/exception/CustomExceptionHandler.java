@@ -1,6 +1,5 @@
 package com.guiabolso.mock.exception;
 
-import org.jetbrains.annotations.NotNull;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,8 +15,10 @@ import org.springframework.web.servlet.NoHandlerFoundException;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import javax.validation.ConstraintViolationException;
+import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @ControllerAdvice
 public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
@@ -50,7 +51,7 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
         final StringBuilder builder = new StringBuilder();
         builder.append(ex.getMethod());
         builder.append(" method is not supported for this request. Supported methods are ");
-        ex.getSupportedHttpMethods().forEach(t -> builder.append(t + " "));
+        Objects.requireNonNull(ex.getSupportedHttpMethods()).forEach(t -> builder.append(t).append(" "));
 
         final ApiException apiException = new ApiException(HttpStatus.METHOD_NOT_ALLOWED, ex.getLocalizedMessage(),
                 builder.toString());
@@ -63,7 +64,7 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
                                                                    final WebRequest request) {
         logger.info(ex.getClass().getName());
         //
-        final String error = ex.getName() + " should be of type " + ex.getRequiredType().getName();
+        final String error = ex.getName() + " should be of type " + Objects.requireNonNull(ex.getRequiredType()).getName();
 
         final ApiException apiException = new ApiException(HttpStatus.BAD_REQUEST, ex.getLocalizedMessage(), error);
         return new ResponseEntity<>(apiException, new HttpHeaders(), apiException.getHttpStatus());
