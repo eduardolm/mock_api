@@ -2,14 +2,10 @@
 ## Instruções
 
 ### Como executar
-A API pode ser executada utilizando Swagger ou realizando as requisições com Postman ou similares.
+A API pode ser executada, realizando as requisições com Postman ou similares.
 Para isso basta acessar a URL da API:
 
 `<API_URL>`
-
-Para acesso utilizando Swagger, basta acessar:
-
-`<API_URL>/swagger-ui`
 
 ### Endpoints 
 
