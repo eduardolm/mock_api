@@ -29,7 +29,8 @@ public class TransactionService implements TransactionServiceInterface{
 
         int quantity = operationHelper.getQuantity(transactionRequest.getId(), transactionRequest.getMonth());
         int[] amount = operationHelper.getTransactionValue(transactionRequest.getId(), quantity);
-        long[] date = operationHelper.getTimestamp(transactionRequest.getYear(), transactionRequest.getMonth(), quantity);
+        long[] date = operationHelper.getTimestamp(transactionRequest.getYear(), transactionRequest.getMonth(),
+                quantity);
         String[] description = operationHelper.getDescription(quantity);
 
         for (int i = 0; i< quantity; i++) {
