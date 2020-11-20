@@ -33,8 +33,7 @@ A API utiliza as seguintes tecnologias:
  + JetBrains IntelliJ IDEA Ultimate
 
 ## Como utilizar
-Para executar a API existem duas opções principais:
- + Acessar o endereço da API utilizando o browser, acessando a interface gráfica do Swagger
+Para executar a API:
  + Utilizar ferramenta como Postman ou similar para fazer as requisições para a API
 
 `<Link>: <API_URL>`
