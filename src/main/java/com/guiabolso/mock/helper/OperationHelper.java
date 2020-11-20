@@ -20,7 +20,7 @@ public class OperationHelper {
         int[] values = new int[quantity];
 
         for (int i = 0; i < quantity; i++) {
-            values[i] = 3 * (int) (Math.pow(i, 3) - 30 * i + c);
+            values[i] = 3 * (int) (Math.pow(i, 3) - 30 * i + c + quantity);
         }
         return values;
     }
