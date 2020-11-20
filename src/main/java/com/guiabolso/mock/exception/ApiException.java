@@ -3,7 +3,7 @@ package com.guiabolso.mock.exception;
 import lombok.Data;
 import org.springframework.http.HttpStatus;
 
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 @Data
@@ -28,6 +28,6 @@ public class ApiException {
         super();
         this.httpStatus = httpStatus;
         this.message = message;
-        this.errors = Arrays.asList(error);
+        this.errors = Collections.singletonList(error);
     }
 }
