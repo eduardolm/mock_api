@@ -3,6 +3,6 @@ version: '2'
 services:
   man:
     build: .
-    image: eduardolm/mock-docker
+    image: eduardolm/mock-api
     ports:
       - 8080:8080
