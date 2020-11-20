@@ -18,7 +18,7 @@ public class TransactionServiceTest {
 
     @Test
     public void testGetTransactions() {
-        TransactionService transactionService = new TransactionService(objectMapper);
+        TransactionService transactionService = new TransactionService(objectMapper, operationHelper);
         TransactionRequest transactionRequest = new TransactionRequest(3456, 2018, 7);
 
         int quantity = operationHelper.getQuantity(transactionRequest.getId(), transactionRequest.getMonth());

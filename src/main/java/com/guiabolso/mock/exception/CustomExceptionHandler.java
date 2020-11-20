@@ -29,7 +29,7 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
                                                                   final @NotNull HttpStatus status,
                                                                   final @NotNull WebRequest request) {
         logger.info(ex.getClass().getName());
-        //
+
         final List<String> errors = new ArrayList<>();
         for (final FieldError error : ex.getBindingResult().getFieldErrors()) {
             errors.add(error.getField() + ": " + error.getDefaultMessage());
@@ -47,7 +47,7 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
                                                                          final @NotNull HttpStatus status,
                                                                          final @NotNull WebRequest request) {
         logger.info(ex.getClass().getName());
-        //
+
         final StringBuilder builder = new StringBuilder();
         builder.append(ex.getMethod());
         builder.append(" method is not supported for this request. Supported methods are ");
@@ -63,7 +63,7 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
     public ResponseEntity<Object> handleMethodArgumentTypeMismatch(final MethodArgumentTypeMismatchException ex,
                                                                    final WebRequest request) {
         logger.info(ex.getClass().getName());
-        //
+
         final String error = ex.getName() + " should be of type " + Objects.requireNonNull(ex.getRequiredType()).getName();
 
         final ApiException apiException = new ApiException(HttpStatus.BAD_REQUEST, ex.getLocalizedMessage(), error);
@@ -74,7 +74,7 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
     public ResponseEntity<Object> handleNullPointerException(final NullPointerException ex) {
         logger.info(ex.getClass().getName());
 
-        final String error = ex.getMessage() + "TESTE";
+        final String error = ex.getMessage();
 
         final ApiException apiException = new ApiException(HttpStatus.BAD_REQUEST, ex.getLocalizedMessage(), error);
         return new ResponseEntity<>(apiException, new HttpHeaders(), apiException.getHttpStatus());
@@ -95,7 +95,7 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
                                                                    final @NotNull HttpStatus status,
                                                                    final @NotNull WebRequest request) {
         logger.info(ex.getClass().getName());
-        //
+
         final String error = "No handler found for " + ex.getHttpMethod() + " " + ex.getRequestURL();
 
         final ApiException apiException = new ApiException(HttpStatus.NOT_FOUND, ex.getLocalizedMessage(), error);
