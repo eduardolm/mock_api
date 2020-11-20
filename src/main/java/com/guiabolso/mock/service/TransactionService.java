@@ -3,7 +3,7 @@ package com.guiabolso.mock.service;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.guiabolso.mock.controller.request.TransactionRequest;
 import com.guiabolso.mock.dto.TransactionDto;
-import com.guiabolso.mock.helper.OperationHelper;
+import com.guiabolso.mock.helper.OperationHelperInterface;
 import com.guiabolso.mock.model.Transaction;
 import org.springframework.stereotype.Service;
 
@@ -15,10 +15,11 @@ public class TransactionService implements TransactionServiceInterface{
 
     private final ObjectMapper objectMapper;
 
-    private final OperationHelper operationHelper = new OperationHelper();
+    private final OperationHelperInterface operationHelper;
 
-    public TransactionService(ObjectMapper objectMapper) {
+    public TransactionService(ObjectMapper objectMapper, OperationHelperInterface operationHelper) {
         this.objectMapper = objectMapper;
+        this.operationHelper = operationHelper;
     }
 
     public List<TransactionDto> getTransactions(TransactionRequest transactionRequest) {

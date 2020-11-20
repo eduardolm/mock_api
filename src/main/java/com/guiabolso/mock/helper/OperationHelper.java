@@ -1,13 +1,15 @@
 package com.guiabolso.mock.helper;
 
 import com.guiabolso.mock.enums.Month;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.time.ZoneOffset;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class OperationHelper {
+@Service
+public class OperationHelper implements OperationHelperInterface {
 
     public int getRandomDay(int year, int month) {
 
